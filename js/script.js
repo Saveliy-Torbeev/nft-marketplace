@@ -32,6 +32,8 @@ setInterval(function(){
         let h = document.querySelectorAll('.mashrooms-action-time_h')
         let m = document.querySelectorAll('.mashrooms-action-time_m')
         let s = document.querySelectorAll('.mashrooms-action-time_s')
+
+        console.log('dsada')
         
         for (let i = 0; i < h.length; i++){
             h[i].innerHTML = Math.floor(timeH /60 / 60)
