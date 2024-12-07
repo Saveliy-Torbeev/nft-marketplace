@@ -108,7 +108,25 @@ document.querySelector('.menu-burger-close').addEventListener('click',function()
 })
 
 if(document.querySelector('#marketplace-search')){
-    document.querySelector('#marketplace-search').addEventListener('input',function(){
+    document.querySelector('#marketplace-search').addEventListener('change',function(){
+        let value = this.value.trim().toLowerCase()
+        let cards = document.querySelectorAll('[data-namecard]');
+        if (value !=''){
+            cards.forEach(function(e){
+                let valueCard = e.dataset.namecard.toLowerCase()
+                if(valueCard.search(value) == -1){
+                    e.classList.add('d-none')
+                }else{
+                    e.classList.remove('d-none')
+                }
+            })
+        } else{
+            cards.forEach(function(e){
+                e.classList.remove('d-none')
+            })
+        }
+     }) 
+     document.querySelector('#marketplace-search').addEventListener('input',function(){
         let value = this.value.trim().toLowerCase()
         let cards = document.querySelectorAll('[data-namecard]');
         if (value !=''){
